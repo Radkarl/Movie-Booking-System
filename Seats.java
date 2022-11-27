@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Seats
 {
 
@@ -100,6 +102,10 @@ public void finalizePurchase()
 }
 
 
+public String getSeat() {
+    return "Row: " + rowToPurchase + " Seat: " + seatToPurchase;
+}
+
 public int getNumTicketsAvailable()
 {	int numAvailable = 0;
 	for (i=0;i<theaterSeatingChart.length; i++) 
@@ -146,4 +152,5 @@ private void chooseSeat()
 	if ((rowToPurchase>=(theaterSeatingChart.length-1))||(seatToPurchase>=(theaterSeatingChart[0].length-1)))
 		System.out.println("That is not a valid seat, please choose between rows 1-9, and seats 1-10");
 	} while ((rowToPurchase>=(theaterSeatingChart.length-1))||(seatToPurchase>=(theaterSeatingChart[0].length-1)));
+}
 }	
