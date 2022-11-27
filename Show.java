@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Show {
     
     // MEMBERS
@@ -11,8 +15,77 @@ public class Show {
 
 
     // METHODS
-    public void addshows(){}
-    public void editshows(){}
+    public void addshows(){
+
+        BufferedReader reader;
+        try {
+			reader = new BufferedReader(new FileReader(
+					"movies.txt"));
+			String line = reader.readLine();
+            line = reader.readLine();
+			while (line != null) {
+				System.out.println(line);
+				// read next line
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+    }
+
+
+    public void printshows(int id){
+
+        BufferedReader reader;
+        try {
+			reader = new BufferedReader(new FileReader(
+					"shows.txt"));
+			String line = reader.readLine();
+            //line = reader.readLine();
+			while (Integer.valueOf(line.substring(0, 1)) != id) {
+				
+				// read next line
+				line = reader.readLine();
+			}
+            line = line.substring(3);
+            String[] times = line.split("\\, ");
+            for (int i = 0; i < times.length; i++)
+                System.out.println(times[i]);
+            System.out.println();
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+    }
+
+    public String findTime(int id, int time) {
+        BufferedReader reader;
+        try {
+			reader = new BufferedReader(new FileReader(
+					"shows.txt"));
+			String line = reader.readLine();
+			while (Integer.valueOf(line.substring(0, 1)) != id) {
+				
+				// read next line
+				line = reader.readLine();
+			}
+            line = line.substring(3);
+            String[] times = line.split("\\, ");
+			reader.close();
+            return times[time-1].substring(3);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+        return "";
+
+    }
+
+
     public void show_details(int show_id, String show_name, String show_status, 
         int show_date, String show_synopsis, String show_cast) {
             this.show_id = show_id;
@@ -23,7 +96,5 @@ public class Show {
             this.show_cast = show_cast;
         }
     // END METHODS
-
-
 
 }
