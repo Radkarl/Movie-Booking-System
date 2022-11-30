@@ -10,3 +10,5 @@ private void register()
 		
 		
 	}
+
+// This will call Customer.class so user can register in main.class when menu is created
