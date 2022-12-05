@@ -20,10 +20,11 @@ public class Movie {
 					"movies.txt"));
 			String line = reader.readLine();
             line = reader.readLine();
-			while (Integer.valueOf(line.substring(0,1)) != id) {
-				
+            int index = 0;
+			while (index != id) {
 				// read next line
 				line = reader.readLine();
+                index++;
 			}
             String[] str = line.split("\\. "); 
             String[] str1 = str[1].split("\\, ");
@@ -64,4 +65,3 @@ public class Movie {
     // END METHODS
 
 }
-
