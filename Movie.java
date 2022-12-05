@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Movie {
     
@@ -9,6 +10,8 @@ public class Movie {
     private String movie_name;
     private String movie_runtime;
     private String movie_type;
+    private String userReview;
+    Scanner scan = new Scanner(System.in);
     // END MEMBERS
 
     // METHODS
@@ -37,6 +40,11 @@ public class Movie {
 
         return needed_movie;
     }
+    public void addReview() {
+    	System.out.print("Please enter your review: ");
+    	userReview = scan.next();
+    	BufferedReader input = null;
+    }
     public void set_id(int movie_id){
         this.movie_id = movie_id;
     }
@@ -64,4 +72,3 @@ public class Movie {
     // END METHODS
 
 }
-
