@@ -44,12 +44,14 @@ public class Show {
 					"shows.txt"));
 			String line = reader.readLine();
             //line = reader.readLine();
-			while (Integer.valueOf(line.substring(0, 1)) != id) {
-				
+            int index = 0;
+			while (index != id) {
 				// read next line
 				line = reader.readLine();
+                index++;
 			}
-            line = line.substring(3);
+            if (index < 10) line = line.substring(3);
+            else line = line.substring(4);
             String[] times = line.split("\\, ");
             for (int i = 0; i < times.length; i++)
                 System.out.println(times[i]);
@@ -67,12 +69,14 @@ public class Show {
 			reader = new BufferedReader(new FileReader(
 					"shows.txt"));
 			String line = reader.readLine();
-			while (Integer.valueOf(line.substring(0, 1)) != id) {
-				
+            int index = 0;
+			while (index != id) {
 				// read next line
 				line = reader.readLine();
+                index++;
 			}
-            line = line.substring(3);
+            if (index < 10) line = line.substring(3);
+            else line = line.substring(4);
             String[] times = line.split("\\, ");
 			reader.close();
             return times[time-1].substring(3);
